@@ -1,7 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+
 
 function Navigationbar() {
+
+  const location = useLocation();
+
+  const isLinkActive = (pathname) => location.pathname === pathname;
+
   return (
     <div className="container-fluid sticky-top bg-dark bg-light-radial shadow-sm px-5 pe-lg-0">
     <nav className="navbar navbar-expand-lg bg-dark bg-light-radial navbar-dark py-3 py-lg-0">
@@ -13,11 +19,11 @@ function Navigationbar() {
       </button>
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <div className="navbar-nav ms-auto py-0">
-          <Link to="/" className="nav-item nav-link active">Home</Link>
-          <Link to="/About" className="nav-item nav-link">About</Link>
-          <Link to="/Service" className="nav-item nav-link">Service</Link>
+          <Link to="/" className={`nav-item nav-link ${isLinkActive('/') ? 'active' : ''}`}>Home</Link>
+          <Link to="/About" className={`nav-item nav-link ${isLinkActive('/About') ? 'active' : ''}`}>About</Link>
+          <Link to="/Service" className={`nav-item nav-link ${isLinkActive('/Service') ? 'active' : ''}`}>Service</Link>
           <div className="nav-item dropdown">
-            <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+            <a href="#" className={`dropdown-toggle nav-link ${isLinkActive('/Projects') || isLinkActive('/Team') || isLinkActive('/Testimonial') ? 'active' : ''}`} data-bs-toggle="dropdown">Pages</a>
             <div className="dropdown-menu m-0">
               <Link to="/Projects" className="dropdown-item">Our Project</Link>
               <Link to="/Team" className="dropdown-item">The Team</Link>
@@ -27,7 +33,7 @@ function Navigationbar() {
             </div>
           </div>
           {/* <a href="Contact" className="nav-item nav-link">Contact</a> */}
-          <Link to="/Contact" className="nav-item nav-link">Contact</Link>
+          <Link to="/Contact" className={`nav-item nav-link ${isLinkActive('/Contact') ? 'active' : ''}`}>Contact</Link>
           <a href className="nav-item nav-link bg-primary text-white px-5 ms-3 d-none d-lg-block">Get A Quote <i className="bi bi-arrow-right" /></a>
         </div>
       </div>

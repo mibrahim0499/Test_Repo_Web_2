@@ -60,10 +60,10 @@ function Footer() {
       <div className="py-4 px-5 text-center text-md-start">
         <p className="mb-0">© <a className="text-primary" href="#">Your Site Name</a>. All Rights Reserved.</p>
       </div>
-      <div className="py-4 px-5 bg-primary footer-shape position-relative text-center text-md-end">
+      {/* <div className="py-4 px-5 bg-primary footer-shape position-relative text-center text-md-end">
         <p className="mb-0">Designed by <a className="text-dark" href="https://htmlcodex.com">HTML Codex</a></p>
         <p className="mb-0">Distributed by <a className="text-dark" href="https://themewagon.com">ThemeWagon</a></p>
-      </div>
+      </div> */}
   </div>
   </div>
   </div>
